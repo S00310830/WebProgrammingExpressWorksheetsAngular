@@ -8,6 +8,7 @@ import { CarList } from './features/cars/pages/car-list/car-list';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
+
 export class App {
   protected readonly title = signal('AngularWorksheet');
 }
