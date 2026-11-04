@@ -3,8 +3,8 @@
 @if (cars$ | async; as cars) {
 
 <ul>
-  @for (car of cars; track car.id) {
-  <li>{{ car.name }} : {{ car.id }}</li>
+  @for (car of cars; track car._id) {
+  <li>{{ car.model }} : {{ car._id }}</li>
   }
 </ul>
 } @else {
