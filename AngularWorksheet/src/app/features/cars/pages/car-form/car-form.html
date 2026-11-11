@@ -10,7 +10,7 @@
     <mat-form-field appearance="outline">
       <mat-label>Make</mat-label>
       <input matInput formControlName="make" placeholder="e.g. Toyota" />
-      @if (carForm.controls.make.hasError('required')) { 
+      @if (carForm.controls.make.hasError('required')) {
       <mat-error>Make is required</mat-error>
       } @else if (carForm.controls.make.hasError('minlength')) {
       <mat-error>Make must be at least 2 characters</mat-error>
@@ -25,7 +25,7 @@
     <mat-form-field appearance="outline">
       <mat-label>Model</mat-label>
       <input matInput formControlName="model" placeholder="e.g. Corolla" />
-      @if (carForm.controls.model.hasError('required')) { 
+      @if (carForm.controls.model.hasError('required')) {
       <mat-error>Model is required</mat-error>
       } @else if (carForm.controls.model.hasError('maxlength')) {
       <mat-error>Model must be 30 characters or fewer</mat-error>
@@ -38,7 +38,7 @@
     <mat-form-field appearance="outline">
       <mat-label>Year</mat-label>
       <input matInput formControlName="year" placeholder="e.g. 2022" type="number" />
-      @if (carForm.controls.year.hasError('required')) { 
+      @if (carForm.controls.year.hasError('required')) {
       <mat-error>Year is required</mat-error>
       } @else if (carForm.controls.year.hasError('min')) {
       <mat-error>Year must be a number between 1950 and the current year + 1</mat-error>
