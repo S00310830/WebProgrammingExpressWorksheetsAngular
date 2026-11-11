@@ -5,12 +5,18 @@
   <div class="form-group">
     <label for="make">Make:</label>
     <input id="make" type="text" formControlName="make" placeholder="e.g. Toyota" />
+    @if (carForm.controls.make.hasError('blank')) {
+      <mat-error>Make cannot be only spaces</mat-error>
+    }
   </div>
 
   <!-- Model Field -->
   <div class="form-group">
     <label for="model">Model:</label>
     <input id="model" type="text" formControlName="model" placeholder="e.g. Corolla" />
+    @if (carForm.controls.model.hasError('blank')) {
+      <mat-error>Model cannot be only spaces</mat-error>
+    }
   </div>
 
   <!-- Year Field -->
