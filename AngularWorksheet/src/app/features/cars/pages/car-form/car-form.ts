@@ -49,6 +49,7 @@ export class CarForm implements OnInit {
 
     request.subscribe({
       next: (response) => {
+        this.snackBar.open(`${carData.make} ${carData.model} saved`, 'Close', { duration: 10000 });
         console.log('Car added successfully:', response);
         this.router.navigate(['/cars']);
       },

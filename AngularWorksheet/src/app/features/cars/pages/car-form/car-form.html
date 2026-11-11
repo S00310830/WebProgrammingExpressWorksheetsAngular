@@ -21,8 +21,18 @@
 
   <!-- Year Field -->
   <div class="form-group">
-    <label for="year">Year:</label>
-    <input id="year" type="number" formControlName="year" placeholder="e.g. 2022" />
+    <mat-form-field appearance="outline">
+      <mat-label>Year</mat-label>
+      <input matInput formControlName="year" placeholder="e.g. 2022" type="number" />
+      @if (carForm.controls.year.hasError('required')) {
+      <mat-error>Year is required</mat-error>
+      } @else if (carForm.controls.year.hasError('min')) {
+      <mat-error>Year must be a number between 1950 and the current year + 1</mat-error>
+      } @else if (carForm.controls.year.hasError('max')) {
+      <mat-error>Year must be a number between 1950 and the current year + 1</mat-error>
+      }
+      <mat-hint>Optional</mat-hint>
+    </mat-form-field>
   </div>
 
   <!-- Action Buttons -->
