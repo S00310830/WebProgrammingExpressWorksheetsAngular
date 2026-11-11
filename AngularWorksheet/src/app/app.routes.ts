@@ -18,6 +18,10 @@ export const routes: Routes = [
     component: CarForm
   },
   {
+    path: 'cars/:id/edit',
+    component: CarForm
+  },
+  {
     path: 'cars/:id',
     component: CarDetails
   },
