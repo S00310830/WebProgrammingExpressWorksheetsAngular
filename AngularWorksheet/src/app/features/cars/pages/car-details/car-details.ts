@@ -6,6 +6,7 @@ import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { Car } from '../../models/car.model';
 import { LoadState, withLoadState } from '../../../../shared/load-state';
 import { Router, RouterLink } from '@angular/router';
+import { AuthCustomService } from '../../../../core/auth/auth-custom.service';
 
 @Component({
   selector: 'app-car-details',
@@ -15,7 +16,8 @@ import { Router, RouterLink } from '@angular/router';
 })
 
 export class CarDetails {
-
+  private authService = inject(AuthCustomService);
+  isAuthenicated = this.authService.isAuthenticated;
   private carService = inject(CarService);
   readonly deleting = signal(false);
   readonly deleteError = signal<string | null>(null);
