@@ -8,7 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { notBlank } from '../../../../shared/validators/not-blank.validator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-car-form',
@@ -22,6 +22,7 @@ export class CarForm implements OnInit {
   private formBuilder = inject(FormBuilder);
   private carService = inject(CarService);
   private router = inject(Router);
+  private snackBar = inject(MatSnackBar);
 
   readonly id = input<string>(); 
    
@@ -49,7 +50,7 @@ export class CarForm implements OnInit {
 
     request.subscribe({
       next: (response) => {
-        this.snackBar.open(`${carData.make} ${carData.model} saved`, 'Close', { duration: 10000 });
+        this.snackBar.open(`${response.make} ${response.model} saved`, 'Close', { duration: 10000 });
         console.log('Car added successfully:', response);
         this.router.navigate(['/cars']);
       },
