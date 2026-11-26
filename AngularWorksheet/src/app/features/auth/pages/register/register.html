@@ -1,0 +1,46 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+  <h2>Register Form</h2>
+
+  <!-- Name Field -->
+  <div class="form-group">
+    <mat-form-field appearance="outline">
+    <mat-label for="name">Name:</mat-label>
+    <input matInput id="name" type="text" formControlName="name" placeholder="e.g. John Doe" />
+    @if (registerForm.controls.name.hasError('blank')) {
+      <mat-error>Name cannot be only spaces</mat-error>
+    }
+    </mat-form-field>
+  </div>
+
+  <!-- Email Field -->
+  <div class="form-group">
+    <mat-form-field appearance="outline">
+    <mat-label for="email">Email:</mat-label>
+    <input matInput id="email" type="text" formControlName="email" placeholder="e.g. johndoe@gmail.com" />
+    @if (registerForm.controls.email.hasError('blank')) {
+      <mat-error>Email cannot be only spaces</mat-error>
+    }
+    </mat-form-field>
+  </div>
+
+  <!-- Password Field -->
+  <div class="form-group">
+    <mat-form-field appearance="outline">
+      <mat-label>Password: </mat-label>
+      <input matInput id="password" formControlName="password" type="text" />
+      @if (registerForm.controls.password.hasError('required')) {
+      <mat-error>Password is required</mat-error>
+      }
+    </mat-form-field>
+  </div>
+
+  <!-- Action Buttons -->
+  @if (saveError(); as message) { <p role="alert">{{ message }}</p> }
+  <div class="button-group">
+    <button matButton type="submit" [disabled]="saving()">
+      {{ saving() ? 'Saving...' : 'Save user' }}
+    </button>
+    <a matButton routerLink="/cars">Cancel</a>
+  </div>
+
+</form>
